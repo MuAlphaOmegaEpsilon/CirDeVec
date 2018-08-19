@@ -33,13 +33,14 @@ TARGET_INCLUDE_DIRECTORIES (CirDeVec INTERFACE "${PROJECT_SOURCE_DIR}/include")
 ###############################################################################
 #                                    TESTS                                    #
 ###############################################################################
-IF (CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)							# This IF-statement is true when someone is building the CirDeVec standalone
+IF (CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)							# This IF-statement is true only when someone is building the CirDeVec standalone
 	IF (${BUILD_TESTING})														# This IF-statement is true when the -DBUILD_TESTING=ON flag is passed to the cmake command
-		ADD_EXECUTABLE (CirDeVecTest "${PROJECT_SOURCE_DIR}/tests/main.cpp")
-		TARGET_LINK_LIBRARIES (CirDeVecTest PRIVATE CirDeVec)
-		SET_PROPERTY (TARGET CirDeVecTest PROPERTY CMAKE_CXX_FLAGS 				# Enable all warnings
+		ADD_EXECUTABLE (Benchmark "${PROJECT_SOURCE_DIR}/tests/main.cpp")
+		TARGET_LINK_LIBRARIES (Benchmark PRIVATE CirDeVec)
+		SET_PROPERTY (TARGET Benchmark PROPERTY CMAKE_CXX_FLAGS 				# Enable all warnings
 						"${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror -pedantic")			
 	ELSE ()
 		MESSAGE (STATUS "Remember that you can build the examples in the tests/ folder by adding the -DBUILD_TESTING=ON to CMake.")
+		MESSAGE (STATUS "Remember that you can run the aforementioned using the \"make test\" command if using Make.")
 	ENDIF ()
 ENDIF ()
