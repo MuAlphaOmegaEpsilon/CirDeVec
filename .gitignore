@@ -3,20 +3,15 @@
 /*/
 
 # ...except these folders (and eventually their content) down here...
-!/build
-!/build/*
 !/docs
 !/docs/*
 !/.git
-!/html
-!/html/*
 !/include
 !/include/*
 !/tests
 !/tests/*
 
 # ...and except these files down here...
-!/build/.gitignore
 !/CMakeLists.txt
 !/Doxyfile
 !/.gitignore
