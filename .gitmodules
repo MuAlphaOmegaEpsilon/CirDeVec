@@ -1,0 +1,3 @@
+[submodule "include/benchmark"]
+	path = include/benchmark
+	url = https://github.com/google/benchmark
