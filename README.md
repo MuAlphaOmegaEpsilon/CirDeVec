@@ -1,6 +1,6 @@
 # CirDeVec
 
-CirDeVec, a **Cir**cular **D**ouble-**E**nded **Vec**tor implementation. 
+CirDeVec, a **Cir**cular **D**ouble-**e**nded **Vec**tor implementation. 
 
 CirDeVec is a hybrid data-structure that is heavily inspired by the behaviour of circular buffers, double-ended queues, and vectors.
 
