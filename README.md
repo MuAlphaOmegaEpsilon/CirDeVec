@@ -1,6 +1,85 @@
 # CirDeVec
 
-CirDeVec contains a templated implementation of a hybrid data-structure that is heavily inspired by the behaviour of circular buffers, double-ended queues, and vectors.
+CirDeVec, a **Cir**cular **D**ouble-**E**nded **Vec**tor implementation. 
+
+CirDeVec is a hybrid data-structure that is heavily inspired by the behaviour of circular buffers, double-ended queues, and vectors.
+
+
+## CirDeVec from a user perspective
+
+The CirDeVec API is basically the same of the vector one. 
+
+From an efficiency point of view, everything is the same as vector, with a few differences:
+* push_front has an O(1) amortized cost, instead of O(N)
+* insert has an O(N) cost, the same as vector, but while vector has to move exactly N elements in the worst case scenario (front insert), CirDeVec only needs to move N/2 elements in the worst case (middle insert)
+
+
+
+## Tools needed to take full advantage of this repository
+
+Here is a list of extra-tools needed for certain purposes; a list of commands to install the tools on Ubuntu/Debian systems is also given down below:
+
+* [Git](https://git-scm.com/): it automates the download of both, the repository itself and the library needed for benchmarking.
+  ```bash
+  sudo apt install git
+  ```
+* [CMake](https://cmake.org/): used to create makefiles and such in an automated fashion.
+  ```bash
+  sudo apt install cmake
+  ```
+* [Doxygen](http://www.doxygen.org/): it generates documentation from source code.
+  ```bash
+  sudo apt install doxygen
+  ```
+
+
+
+
+## Cloning this repository
+
+With the command below you will download the content of this repository in CURRENT_FOLDER/CirDeVec/.
+
+```bash
+$ git clone https://github.com/MuAlphaOmegaEpsilon/CirDeVec
+```
+
+
+
+
+## Benchmark CirDeVec
+
+This repository has an integrated benchmark, which is useful to assess the performance of the CirDeVec data structure against the commonly used vector.
+
+### Download benchmark dependencies
+
+In order to launch the benchmark, you will first need to download the Google Benchmark library like this:
+
+```bash
+# First go into the repo folder, if you haven't already
+$ cd Cirdevec
+
+$ cd scripts
+$ chmod +x downloadTestDependencies.sh
+$ ./downloadTestDependencies.sh
+$ cd ..
+```
+
+### Run the benchmark
+
+
+
+```bash
+# First go into the repo folder, if you haven't already
+$ cd Cirdevec
+
+$ cd build
+$ cmake .. -DBUILD_TESTING=ON
+$ make
+$ make test
+```
+
+
+
 
 ## Additional info
 
@@ -9,11 +88,3 @@ CirDeVec, also called CDV for short, basically behaves as a symmetric vector, wh
 The sizeof CDV itself is quite cache-friendly, since it only uses 4 pointers internally:
 * [64bit] 32B each, meaning that up to 2 CDVs can be put inside a single 64B cache line
 * [32bit] 16B each, meaning that up to 4 CDVs can be put inside a single 64B cache line
-
-<style
-  type="text/css">
-h2 {color:red;}
-
-p {color:blue;}
-</style>
-okay
