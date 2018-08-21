@@ -25,7 +25,8 @@ ADD_LIBRARY (CirDeVec INTERFACE)
 ###############################################################################
 #                               HEADERS INCLUSION                             #
 ###############################################################################
-TARGET_INCLUDE_DIRECTORIES (CirDeVec INTERFACE "${PROJECT_SOURCE_DIR}/include")	
+TARGET_INCLUDE_DIRECTORIES (CirDeVec INTERFACE "${PROJECT_SOURCE_DIR}/include"
+												"${PROJECT_SOURCE_DIR}/include/benchmark/include")	
 
 
 
