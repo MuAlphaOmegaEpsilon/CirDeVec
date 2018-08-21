@@ -1,11 +1,6 @@
 cd ..
-echo "Initializing submodules"
-git submodule init
-echo "Downloading the Google Benchmark submodule"
-git submodule update
-echo "Downloading the Google Test submodule"
-git clone https://github.com/google/googletest.git include/benchmark/googletest
-cd include/benchmark
+git submodule update --init
+cd ./include/benchmark
 mkdir build && cd build
-cmake .. -DCMAKE_BUILD_TYPE=RELEASE
+cmake .. -DCMAKE_BUILD_TYPE=RELEASE -DBENCHMARK_DOWNLOAD_DEPENDENCIES=ON -DBENCHMARK_ENABLE_GTEST_TESTS=OFF -DBENCHMARK_ENABLE_INSTALL=OFF
 make
