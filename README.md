@@ -4,8 +4,16 @@ CirDeVec, a **Cir**cular **D**ouble-**e**nded **Vec**tor implementation.
 
 CirDeVec is a hybrid data-structure that is heavily inspired by the behaviour of circular buffers, double-ended queues, and vectors.
 
+## Table of contents
+1. [API](#API)
+2. [Some paragraph](#paragraph1)
+    1. [Sub paragraph](#subparagraph1)
+3. [Another paragraph](#paragraph2)
 
-## CirDeVec from a user perspective
+
+<!-- toc -->
+
+## API
 
 The CirDeVec API is basically the same of the vector one. 
 
