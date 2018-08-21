@@ -1,6 +1,6 @@
 /**
- * @brief This is the header-only file for the C++ implementation of CirDeVec, a Circular Double-Ended Vector data-structure.  
- * You can keep track of the latest updates of this projecy on https://github.com/MuAlphaOmegaEpsilon/CirDeVec
+ * @brief This is the header-only file for the C++ implementation of CirDeVec, a Circular Double-ended Vector data-structure.  
+ * Keep track of the latest updates of this project at https://github.com/MuAlphaOmegaEpsilon/CirDeVec
  * @file CirDeVec.hpp
  * @license GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
  * @author Tommaso Bonvicini <tommasobonvicini@gmail.com> https://github.com/MuAlphaOmegaEpsilon/
@@ -13,18 +13,10 @@
 #pragma once
 
 #include <memory>
+#include <string>
 
 /**
- * @brief A Circular Double-Ended Vector collection class. 
- * CirDeVec contains a templated implementation of a hybrid data-structure that is heavily inspired by the behaviour of
- * circular buffers, double-ended queues, and vectors.
- * CirDeVec, also called CDV for short, basically behaves as a symmetric vector, where symmetrical means that doing an insert/remove operation near
- * the head has equal cost compared to the same operation near the head, instead of the classical asymmetrical vector, where asymmetrical means
- * that the cost of issueing an insert/remove operation near the head has a much higher cost compared to the same operation near the tail.
- * The memory of this data structures will be allocated in chunks, usually sized as a factor of the cache line size.
- * The sizeof CDV itself are quite cache-friendly, since it uses only 4 pointers:
- * on 64bit machines: 32B each, meaning that up to 2 CDVs can be put inside a single 64B cache line
- * on 32bit machines: 16B each, meaning that up to 4 CDVs can be put inside a single 64B cache line
+ * @brief A Circular Double-ended Vector data-structure. 
  * @tparam T Is the type of the elements that the collection will contain.
  * If your type T is a struct or a class, be sure to have its member variables correctly placed and aligned in memory in order to achieve greater performances.
  */
@@ -33,7 +25,7 @@ template <class T> class cirdevec
 private:
 	// Member variables
 	T* dataHead; 	/// This points to the element at the head of the collection, if and only if the collection is not empty.
-	T* dataTail;	/// This points to the first element outer to the collection.
+	T* dataTail;	/// This points to the element at the tail of the collection, if and only if the collection is not empty.
 	T* arrayBegin;	/// This points to the first byte of the allocated memory.
 	T* arrayEnd;	/// This points to the first byte outer to the allocated memory.
 
@@ -50,17 +42,18 @@ private:
 	constexpr static unsigned int baseAllocMod = baseElementsAllocNum * T_size % chunkSize; /// The modulo of the division between the total size occupied by the elements during the first allocation and the chunk size.
 	constexpr static unsigned int baseChunksAllocNum = baseAllocDiv + ((baseAllocMod) ? 1 : 0); /// The number of chunks to allocate in order to fully contain all the elements during the first allocation.
 	
+	//constexpr static string info = "[CirDeVec <" + typeid (T).name () + ">] INFO:\n";
 
 public:
 	// Type definitions
-	typedef T* iterator; /// The type definition of an iterator.
-	typedef const T* const_iterator; /// The type definition of a constant iterator.
+	//typedef T* iterator; /// The type definition of an iterator.
+	//typedef const T* const_iterator; /// The type definition of a constant iterator.
 
 	// Contructors and destructors
 	cirdevec () noexcept; 
 	explicit cirdevec (unsigned int) noexcept;
-	cirdevec (unsigned int, const T&) noexcept;
-	cirdevec (typename cirdevec <T>::iterator, typename cirdevec <T>::iterator );
+	explicit cirdevec (unsigned int, const T&) noexcept;
+	cirdevec (T*, T*);
 	cirdevec (std::initializer_list <T>);
 	cirdevec (const cirdevec <T> &);
 	cirdevec (cirdevec <T> &&) noexcept;
@@ -69,14 +62,74 @@ public:
 	cirdevec <T> & operator = (cirdevec <T> &&);
 	cirdevec <T> & operator = (std::initializer_list <T>);
 	void assign (unsigned int, const T &);
-	void assign (typename cirdevec <T>::iterator, typename cirdevec <T>::iterator);
+	void assign (T*, T*);
 	void assign (std::initializer_list <T>);
 
-	// Interface functions
-	void push_back (const T&);
-};
-template <class T> using cdv = cirdevec <T>;
+	// iterators:
+	T* begin () noexcept;
+	const T* begin () const noexcept;
+	T* end () noexcept;
+	const T* cend () const noexcept;
+	/*
+	reverse_iterator rbegin () noexcept;
+	const_reverse_iterator crbegin() const noexcept;
+	reverse_iterator rend() noexcept;
+	const_reverse_iterator crend() const noexcept;
+	*/
 
+	// 23.3.11.3, capacity:
+	bool empty () const noexcept;
+	bool full () const noexcept;
+	unsigned int size () const noexcept;
+	unsigned int max_size () const noexcept;
+	unsigned int capacity () const noexcept;
+	void resize (unsigned int);
+	void resize (unsigned int, const T &);
+	void reserve (unsigned int);
+	void shrink_to_fit ();
+
+	// element access
+	T& operator [] (unsigned int);
+	const T& operator [] (unsigned int) const;
+	T& at (unsigned int);
+	const T& at (unsigned int) const;
+	T& front ();
+	const T& front () const;
+	T& back ();
+	const T& back () const;
+
+	// 23.3.11.4, data access:
+	T * data() noexcept;
+	const T * data() const noexcept; 
+
+	// 23.3.11.5, modifiers:
+	template <class ... Args> void emplace_back (Args&& ...);
+	void push_back (const T &);
+	void push_back (T &&);
+	void pop_back ();
+	template <class ... Args> void emplace_front (Args&& ...);
+	void push_front (const T &);
+	void push_front (T &&);
+	void pop_front ();
+
+	template <class ... Args> T* emplace (const T*, Args&& ...); 
+	T* insert (const T*, const T&);
+	T* insert (const T*, T&&);
+	T* insert (const T*, unsigned int, const T&);
+	template <class InputIt> T* insert (const T*, InputIt, InputIt);
+	T* insert (const T*, std::initializer_list <T>);
+	T* erase (const T*);
+	T* erase (const T*, const T*);
+	void swap (cirdevec <T> &);
+	void clear () noexcept;
+
+	bool operator == (const cirdevec <T> &) const;
+	bool operator != (const cirdevec <T> &) const;
+	bool operator < (const cirdevec <T> &) const;
+	bool operator <= (const cirdevec <T> &) const;
+	bool operator > (const cirdevec <T> &) const;
+	bool operator >= (const cirdevec <T> &) const;
+};
 
 template <class T>
 cirdevec <T>::cirdevec () noexcept
