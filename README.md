@@ -1,4 +1,4 @@
-# <img src="https://github.com//MuAlphaOmegaEpsilon/CirDeVec/blob/master/extra/C.png?raw=true" height="52" alt="C" title="">irDeVec, a **Cir**cular **D**ouble-**e**nded **Vec**tor implementation. 
+# <img src="https://github.com//MuAlphaOmegaEpsilon/CirDeVec/blob/master/extra/C.png?raw=true" height="46" alt="C" title="">irDeVec, a **Cir**cular **D**ouble-**e**nded **Vec**tor implementation. 
 
 CirDeVec is a hybrid data-structure that is heavily inspired by the behaviour of circular buffers, deques, and vectors.
 
