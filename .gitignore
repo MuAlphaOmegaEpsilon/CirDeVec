@@ -3,7 +3,9 @@
 
 # ...except these folders (and eventually their content) down here...
 !/build
+!/cmake
 !/docs
+!/extra
 !/.git
 !/include
 !/scripts
