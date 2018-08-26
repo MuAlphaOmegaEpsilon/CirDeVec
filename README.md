@@ -2,7 +2,7 @@
 
 CirDeVec, a **Cir**cular **D**ouble-**e**nded **Vec**tor implementation. 
 
-CirDeVec is a hybrid data-structure that is heavily inspired by the behaviour of circular buffers, double-ended queues, and vectors.
+CirDeVec is a hybrid data-structure that is heavily inspired by the behaviour of circular buffers, deques, and vectors.
 
 ## Table of contents
 1. [API](#API)
@@ -15,7 +15,7 @@ CirDeVec is a hybrid data-structure that is heavily inspired by the behaviour of
 
 ## API
 
-The CirDeVec API is basically the same of the vector one. 
+The CirDeVec API is basically the same of the deque one, but the internal implementation is much more similar to a vector, with the added bonus of circularity. 
 
 From an efficiency point of view, everything is the same as vector, with a few differences:
 * push_front has an O(1) amortized cost, instead of O(N)
@@ -27,15 +27,15 @@ From an efficiency point of view, everything is the same as vector, with a few d
 
 Here is a list of extra-tools needed for certain purposes; a list of commands to install the tools on Ubuntu/Debian systems is also given down below:
 
-* [Git](https://git-scm.com/): it automates the download of both, the repository itself and the library needed for benchmarking.
+* [![Git](https://git-scm.com/images/logo@2x.png)](https://git-scm.com/): it automates the download of both, the repository itself and the library needed for benchmarking.
   ```bash
   sudo apt install git
   ```
-* [CMake](https://cmake.org/): used to create makefiles and such in an automated fashion.
+* [![CMake](https://cmake.org/wp-content/uploads/2014/06/cmake_logo-main.png)](https://cmake.org/): used to create makefiles and such in an automated fashion.
   ```bash
   sudo apt install cmake
   ```
-* [Doxygen](http://www.doxygen.org/): it generates documentation from source code.
+* [![Doxygen](http://www.stack.nl/~dimitri/doxygen/images/doxygen.png)](http://www.doxygen.org/): it generates documentation from source code.
   ```bash
   sudo apt install doxygen
   ```
@@ -96,3 +96,8 @@ CirDeVec, also called CDV for short, basically behaves as a symmetric vector, wh
 The sizeof CDV itself is quite cache-friendly, since it only uses 4 pointers internally:
 * [64bit] 32B each, meaning that up to 2 CDVs can be put inside a single 64B cache line
 * [32bit] 16B each, meaning that up to 4 CDVs can be put inside a single 64B cache line
+
+
+
+IMAGES
+[Git]: https://git-scm.com/images/logo@2x.png
