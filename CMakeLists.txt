@@ -9,7 +9,18 @@ CMAKE_MINIMUM_REQUIRED (VERSION 3.9.5)
 ###############################################################################
 #                                  PROJECT                                    #
 ###############################################################################
-PROJECT (CirDeVec LANGUAGES CXX VERSION 1.0.0 DESCRIPTION "A C++ implementation of a Circular Double-Ended Vector")
+PROJECT (CirDeVec VERSION 1.0.0 LANGUAGES CXX 
+		DESCRIPTION "A C++ implementation of a Circular Double-ended Vector"
+		HOMEPAGE_URL "https://github.com/MuAlphaOmegaEpsilon/CirDeVec/")
+
+
+
+
+###############################################################################
+#                                  OPTIONS                                    #
+###############################################################################
+OPTION (TEST "Is library testing enabled?" OFF)									# Default is OFF
+OPTION (BENCH "Is library benchmarking enabled?" OFF)							# Default is OFF
 
 
 
@@ -25,8 +36,7 @@ ADD_LIBRARY (CirDeVec INTERFACE)
 ###############################################################################
 #                               HEADERS INCLUSION                             #
 ###############################################################################
-TARGET_INCLUDE_DIRECTORIES (CirDeVec INTERFACE "${PROJECT_SOURCE_DIR}/include"
-												"${PROJECT_SOURCE_DIR}/include/benchmark/include")	
+TARGET_INCLUDE_DIRECTORIES (CirDeVec INTERFACE "include")						# The include folder of the CirDeVec library
 
 
 
@@ -34,18 +44,27 @@ TARGET_INCLUDE_DIRECTORIES (CirDeVec INTERFACE "${PROJECT_SOURCE_DIR}/include"
 ###############################################################################
 #                                    TESTS                                    #
 ###############################################################################
-IF (CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)							# This IF-statement is true only when someone is building the CirDeVec standalone
-	IF (${BUILD_TESTING})														# This IF-statement is true when the -DBUILD_TESTING=ON flag is passed to the cmake command
-																
-		ADD_EXECUTABLE (bench "${PROJECT_SOURCE_DIR}/tests/bench.cpp")	# Add the benchmark.cpp as an executable to build
-		TARGET_LINK_LIBRARIES (bench PRIVATE CirDeVec)
-
-		SET_PROPERTY (TARGET bench PROPERTY CMAKE_CXX_FLAGS 				# Enable all warnings
-						"${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror -pedantic")	
-
-		ENABLE_TESTING ()														# Enable the testing generation
-		ADD_TEST (Bench bench)											# Add the test Benchmark to run the benchmark executable
-	ELSE ()
-		MESSAGE (STATUS "Remember that you can enable the benchmark in the tests/ folder by adding the -DBUILD_TESTING=ON to CMake.")
-	ENDIF ()
+IF (TEST)
+	INCLUDE (cmake/buildTests.cmake)
 ENDIF ()
+
+
+
+
+###############################################################################
+#                                   BENCHMARK                                 #
+###############################################################################
+IF (BENCH)
+	INCLUDE (cmake/buildBenchmark.cmake)
+ENDIF ()
+
+
+
+
+###############################################################################
+#                                OPTIONS LISTING                              #
+###############################################################################
+MESSAGE (STATUS "Down here there is a list of useful options flags:")			# Listing the options flags
+MESSAGE (STATUS "  [${TEST}] -DTEST=ON/OFF to enable/disable library functionality testing")
+MESSAGE (STATUS "  [${BENCH}] -DBENCH=ON/OFF to enable/disable library benchmarking against vector")
+MESSAGE (STATUS "")	
