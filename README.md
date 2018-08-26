@@ -27,7 +27,7 @@ From an efficiency point of view, everything is the same as vector, with a few d
 
 Here is a list of extra-tools needed for certain purposes; a list of commands to install the tools on Ubuntu/Debian systems is also given down below:
 
-* [![Git](https://git-scm.com/images/logo@2x.png)](https://git-scm.com/): it automates the download of both, the repository itself and the library needed for benchmarking.
+* [![Git|10x10](https://git-scm.com/images/logo@2x.png)](https://git-scm.com/): it automates the download of both, the repository itself and the library needed for benchmarking.
   ```bash
   sudo apt install git
   ```
