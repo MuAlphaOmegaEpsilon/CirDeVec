@@ -1,5 +1,6 @@
-# <img src="https://github.com//MuAlphaOmegaEpsilon/CirDeVec/blob/master/extra/C.png?raw=true" height="46" alt="C" title="">irDeVec, a **Cir**cular **D**ouble-**e**nded **Vec**tor implementation. 
+# ***<img src="https://github.com//MuAlphaOmegaEpsilon/CirDeVec/blob/master/extra/C.png?raw=true" height="64" alt="C" title="">irDeVec***
 
+## **CirDeVec**, a **Cir**cular **D**ouble-**e**nded **Vec**tor implementation.
 CirDeVec is a hybrid data-structure that is heavily inspired by the behaviour of circular buffers, deques, and vectors.
 
 ## Table of contents
@@ -55,15 +56,15 @@ From an efficiency point of view, everything is the same as **vector**, with a f
 
 Here is a list of extra-tools needed for certain purposes; a list of commands to install the tools on Ubuntu/Debian systems is also given down below:
 
-* [<img src="https://git-scm.com/images/logo@2x.png" height="52" alt="Git" title="https://git-scm.com/">](https://git-scm.com/): it automates the download of both, the repository itself and the library needed for benchmarking.
+* [<img src="https://git-scm.com/images/logo@2x.png" height="52" alt="Git" title="https://git-scm.com/" align="middle">](https://git-scm.com/): it automates the download of both, the repository itself and the library needed for benchmarking.
   ```bash
   sudo apt install git
   ```
-* [<img src="https://cmake.org/wp-content/uploads/2014/06/cmake_logo-main.png" height="70" alt="CMake" title="https://cmake.org/">](https://cmake.org/): used to create makefiles and such in an automated fashion.
+* [<img src="https://cmake.org/wp-content/uploads/2014/06/cmake_logo-main.png" height="70" alt="CMake" title="https://cmake.org/" align="middle">](https://cmake.org/): used to create makefiles and such in an automated fashion.
   ```bash
   sudo apt install cmake
   ```
-* [<img src="http://www.stack.nl/~dimitri/doxygen/images/doxygen.png" height="52" alt="Doxygen" title="http://www.doxygen.org/">](http://www.doxygen.org/): it generates documentation from source code.
+* [<img src="http://www.stack.nl/~dimitri/doxygen/images/doxygen.png" height="52" alt="Doxygen" title="http://www.doxygen.org/" align="middle">](http://www.doxygen.org/): it generates documentation from source code.
   ```bash
   sudo apt install doxygen
   ```
