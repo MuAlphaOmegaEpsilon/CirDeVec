@@ -31,11 +31,11 @@ Here is a list of extra-tools needed for certain purposes; a list of commands to
   ```bash
   sudo apt install git
   ```
-* [<img src="https://cmake.org/wp-content/uploads/2014/06/cmake_logo-main.png" height="66" alt="CMake" title="https://cmake.org/">](https://cmake.org/): used to create makefiles and such in an automated fashion.
+* [<img src="https://cmake.org/wp-content/uploads/2014/06/cmake_logo-main.png" height="70" alt="CMake" title="https://cmake.org/">](https://cmake.org/): used to create makefiles and such in an automated fashion.
   ```bash
   sudo apt install cmake
   ```
-* [<img src="http://www.stack.nl/~dimitri/doxygen/images/doxygen.png" height="56" alt="Doxygen" title="http://www.doxygen.org/">](http://www.doxygen.org/): it generates documentation from source code.
+* [<img src="http://www.stack.nl/~dimitri/doxygen/images/doxygen.png" height="52" alt="Doxygen" title="http://www.doxygen.org/">](http://www.doxygen.org/): it generates documentation from source code.
   ```bash
   sudo apt install doxygen
   ```
