@@ -5,10 +5,11 @@ CirDeVec, a **Cir**cular **D**ouble-**e**nded **Vec**tor implementation.
 CirDeVec is a hybrid data-structure that is heavily inspired by the behaviour of circular buffers, deques, and vectors.
 
 ## Table of contents
-1. [Download repository](#Download-Cirdevec)
-  1. [Update repository] (#Update-CirDeVec) 
-2. [API](#API)
-3. [Efficiency](#Efficiency)
+- [Download repository](#Download-Cirdevec)
+  * [Download extra-dependencies] (#Download-extra-dependencies)
+  * [Update repository] (#Update-CirDeVec) 
+- [API](#API)
+- [Efficiency](#Efficiency)
 
 ## Download CirDeVec
 
@@ -17,12 +18,25 @@ Using the command below you can download the content of this repository in an au
 ```bash
 $ git clone https://github.com/MuAlphaOmegaEpsilon/CirDeVec
 ```
+### Download extra-dependencies
+
+If you wish to benchmark the **CirDeVec** performance against other data structures, you need to download the Google Benchmark library, which is a dependency. You can use the command below.
+
+```bash
+# You need to be inside the CirDeVec repository folder
+$ cd CirDeVec
+# Download the dependencies
+$ git submodule update --init
+```
 
 ### Update CirDeVec
 
-If you already downloaded the **CirDeVec** repository, maybe some time ago, you might want to update it: you can do so by using the command below from the inside of the **CirDeVec** repo folder.
+If you already downloaded the **CirDeVec** repository, maybe some time ago, you might want to update it. You can use the command below.
 
 ```bash
+# You need to be inside the CirDeVec repository folder
+$ cd CirDeVec
+# Update the repository
 $ git pull origin master
 ```
 
