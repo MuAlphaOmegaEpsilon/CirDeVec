@@ -27,15 +27,15 @@ From an efficiency point of view, everything is the same as vector, with a few d
 
 Here is a list of extra-tools needed for certain purposes; a list of commands to install the tools on Ubuntu/Debian systems is also given down below:
 
-* [![Git|10x10](https://git-scm.com/images/logo@2x.png)](https://git-scm.com/): it automates the download of both, the repository itself and the library needed for benchmarking.
+* [<img src="https://git-scm.com/images/logo@2x.png" height="52" alt="Git" title="https://git-scm.com/">](https://git-scm.com/): it automates the download of both, the repository itself and the library needed for benchmarking.
   ```bash
   sudo apt install git
   ```
-* [![CMake](https://cmake.org/wp-content/uploads/2014/06/cmake_logo-main.png)](https://cmake.org/): used to create makefiles and such in an automated fashion.
+* [<img src="https://cmake.org/wp-content/uploads/2014/06/cmake_logo-main.png" height="64" alt="CMake" title="https://cmake.org/">](https://cmake.org/): used to create makefiles and such in an automated fashion.
   ```bash
   sudo apt install cmake
   ```
-* [![Doxygen](http://www.stack.nl/~dimitri/doxygen/images/doxygen.png)](http://www.doxygen.org/): it generates documentation from source code.
+* [<img src="http://www.stack.nl/~dimitri/doxygen/images/doxygen.png" height="64" alt="Doxygen" title="http://www.doxygen.org/">](http://www.doxygen.org/): it generates documentation from source code.
   ```bash
   sudo apt install doxygen
   ```
