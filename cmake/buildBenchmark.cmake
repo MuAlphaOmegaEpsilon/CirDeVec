@@ -17,5 +17,6 @@ IF (CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)						# This is true only
 	FIND_PACKAGE (Threads REQUIRED)											# Finding pthread, since it is REQUIRED
 	TARGET_LINK_LIBRARIES (bench pthread)									# It is necessary to link with the pthread library due to how GCC implements std::thread
 	TARGET_LINK_LIBRARIES (bench benchmark)									# Linking to the Google Benchmark static library
+	TARGET_LINK_LIBRARIES (bench CirDeVec)									# Linking to the Google Benchmark static library
 	
 ENDIF ()
