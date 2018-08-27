@@ -1,14 +1,31 @@
-# ***<img src="https://github.com//MuAlphaOmegaEpsilon/CirDeVec/blob/master/extra/C.png?raw=true" height="64" alt="C" title="" align="middle">irDeVec***
+# [<img src="https://user-images.githubusercontent.com/26225010/44673467-ebbabe80-aa2b-11e8-9754-8b8b0b137ac1.png" height="128" alt="CirDeVec" title="CirDeVec GitHub Homepage">](https://github.com/MuAlphaOmegaEpsilon/CirDeVec) - Main Page
 
-## **CirDeVec**, a **Cir**cular **D**ouble-**e**nded **Vec**tor implementation.
+> ### ***CirDeVec***, a **Cir**cular **D**ouble-**e**nded **Vec**tor data-structure.
+
 CirDeVec is a hybrid data-structure that is heavily inspired by the behaviour of circular buffers, deques, and vectors.
 
-## Table of contents
-- [Download repository](#Download-Cirdevec)
-  * [Download extra-dependencies] (#Download-extra-dependencies)
-  * [Update repository] (#Update-CirDeVec) 
-- [API](#API)
-- [Efficiency](#Efficiency)
+## Table of contents (with hyperlinks)
+
+- [Repository folders structure](#Repository-folders-structure): a look at how the files are distributed in directories.
+- [Download repository](#Download-Cirdevec): details on how to download this repository.
+  - [Update repository](#Update-CirDeVec): details on how to update this repository.
+- [Dependencies](#Dependencies): a list of dependencies and their use inside this project.
+
+
+## Repository folders structure
+Give a look at the [kriasoft's Folder Structure Conventions](https://github.com/kriasoft/Folder-Structure-Conventions) first if you need to, since the structure of this repository is based on that.
+
+    .
+    ├── build/                      # Local folder for project builds
+    ├── cmake/                      # CMake script files
+    ├── deps/                       # Dependency libraries (3rd party submodules)
+    ├── docs/                       # Documentation markdown files
+    ├── include/                    # Header files
+    ├── tests/                      # Automated tests
+    ├── CMakeLists.txt              # CMake main script file
+    ├── Doxyfile                    # Doxygen configuration file
+    ├── LICENSE.md                  # License markdown file 
+    └── README.md                   # Readme markdown file (YOU ARE HERE)
 
 ## Download CirDeVec
 
@@ -17,38 +34,28 @@ Using the command below you can download the content of this repository in an au
 ```bash
 $ git clone https://github.com/MuAlphaOmegaEpsilon/CirDeVec
 ```
-### Download extra-dependencies
-
-If you wish to benchmark the **CirDeVec** performance against other data structures, you need to download the Google Benchmark library, which is a dependency. You can use the command below.
-
-```bash
-# You need to be inside the CirDeVec repository folder
-$ cd CirDeVec
-# Download the dependencies
-$ git submodule update --init
-```
 
 ### Update CirDeVec
 
 If you already downloaded the **CirDeVec** repository, maybe some time ago, you might want to update it. You can use the command below.
 
 ```bash
-# You need to be inside the CirDeVec repository folder
+# If you aren't already inside the CirDeVec repository folder
 $ cd CirDeVec
 # Update the repository
 $ git pull origin master
 ```
 
-## API
+## Dependencies
 
-The **CirDeVec** API is basically the same of the **deque** one, but the internal implementation is much more similar to a **vector**, with the added bonus of circularity. 
+* [Google Benchmark library](https://github.com/google/benchmark): if you wish to benchmark the **CirDeVec** performance against other data structures, you need to download this.
 
-
-
-## Efficiency
-From an efficiency point of view, everything is the same as **vector**, with a few differences:
-* ***push_front*** has an **O(1)** amortized cost, instead of **O(N)**
-* ***insert*** has an **O(N)** cost, the same as **vector**, but while **vector** has to move exactly N elements in the worst case scenario (front insert), **CirDeVec** only needs to move N/2 elements in the worst case (middle insert)
+  ```bash
+  # If you aren't already inside the CirDeVec repository folder
+  $ cd CirDeVec
+  # Download the dependencies
+  $ git submodule update --init
+  ```
 
 
 
@@ -56,63 +63,19 @@ From an efficiency point of view, everything is the same as **vector**, with a f
 
 Here is a list of extra-tools needed for certain purposes; a list of commands to install the tools on Ubuntu/Debian systems is also given down below:
 
+* [Build-essential (Linux only)](https://packages.debian.org/en/sid/build-essential): a collection of tools to build C and C++ projects.
+  ```bash
+  sudo apt-get install build-essential
+  ```
 * [<img src="https://git-scm.com/images/logo@2x.png" height="52" alt="Git" title="https://git-scm.com/" align="middle">](https://git-scm.com/): it automates the download of both, the repository itself and the library needed for benchmarking.
   ```bash
-  sudo apt install git
+  sudo apt-get install git
   ```
 * [<img src="https://cmake.org/wp-content/uploads/2014/06/cmake_logo-main.png" height="70" alt="CMake" title="https://cmake.org/" align="middle">](https://cmake.org/): used to create makefiles and such in an automated fashion.
   ```bash
-  sudo apt install cmake
+  sudo apt-get install cmake
   ```
 * [<img src="http://www.stack.nl/~dimitri/doxygen/images/doxygen.png" height="52" alt="Doxygen" title="http://www.doxygen.org/" align="middle">](http://www.doxygen.org/): it generates documentation from source code.
   ```bash
-  sudo apt install doxygen
+  sudo apt-get install doxygen
   ```
-
-
-
-
-
-
-## Integrations
-
-This repository has an integrated benchmark, which is useful to assess the performance of the **CirDeVec** data structure against the commonly used **vector** and **deque**.
-
-### Download benchmark dependencies
-
-In order to launch the benchmark, you will first need to download the Google Benchmark library like this:
-
-```bash
-# First go into the repo folder, if you haven't already
-$ cd Cirdevec
-
-$ cd scripts
-$ chmod +x downloadTestDependencies.sh
-$ ./downloadTestDependencies.sh
-$ cd ..
-```
-
-### Run the benchmark
-
-
-
-```bash
-# First go into the repo folder, if you haven't already
-$ cd Cirdevec
-
-$ cd build
-$ cmake .. -DBUILD_TESTING=ON
-$ make
-$ make test
-```
-
-
-
-
-## Additional info
-
-CirDeVec, also called CDV for short, basically behaves as a symmetric vector, where symmetrical means that doing an insert/remove operation near the head has equal cost compared to the same operation near the head, instead of the classical asymmetrical vector, where asymmetrical means that the cost of issueing an insert/remove operation near the head has a much higher cost compared to the same operation near the tail. 
-
-The sizeof CDV itself is quite cache-friendly, since it only uses 4 pointers internally:
-* [64bit] 32B each, meaning that up to 2 CDVs can be put inside a single 64B cache line
-* [32bit] 16B each, meaning that up to 4 CDVs can be put inside a single 64B cache line
