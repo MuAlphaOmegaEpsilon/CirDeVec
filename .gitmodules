@@ -1,3 +1,0 @@
-[submodule "extra/benchmark"]
-	path = extra/benchmark
-	url = https://github.com/google/benchmark/
