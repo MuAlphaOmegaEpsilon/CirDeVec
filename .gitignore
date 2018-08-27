@@ -4,7 +4,8 @@
 # ...except these folders (and eventually their content) down here...
 !/build
 !/cmake
-!/dependencies
+!/deps
+!/docs
 !/.git
 !/include
 !/tests
