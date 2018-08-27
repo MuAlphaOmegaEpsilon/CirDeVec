@@ -1,6 +1,6 @@
 IF (CMAKE_SOURCE_DIR STREQUAL CMAKE_CURRENT_SOURCE_DIR)						# This is true only when someone is building the CirDeVec standalone
 
-	SET (GBENCH "extra/benchmark")											# A simple shortcut for the path "extra/benchmark"
+	SET (GBENCH "dependencies/benchmark")											# A simple shortcut for the path "extra/benchmark"
 
 	SET (CMAKE_BUILD_TYPE RELEASE)											# Build type is RELEASE
 	OPTION (BENCHMARK_ENABLE_TESTING OFF)									# Disable testing of the Google Benchmark library
