@@ -2,14 +2,32 @@
 
 > ### ***CirDeVec***, a **Cir**cular **D**ouble-**e**nded **Vec**tor data-structure.
 
+
+
 CirDeVec is a hybrid data-structure that is heavily inspired by the behaviour of circular buffers, deques, and vectors.
+
+
 
 ## Table of contents (with hyperlinks)
 
 - [Repository folders structure](#Repository-folders-structure): a look at how the files are distributed in directories.
 - [Download repository](#Download-Cirdevec): details on how to download this repository.
   - [Update repository](#Update-CirDeVec): details on how to update this repository.
+- [Extra-tools](#Extra-tools): a list of non-strictly-necessary tools that enable extra features.
 - [Dependencies](#Dependencies): a list of dependencies and their use inside this project.
+- [Inclusion](./INCLUSION.md): check this if you want to know how to include this library.
+  - [Include statement](#Include-statement): bring me in!
+  - [Header file](#Header-file): where's the header!?
+  - [CMake](#CMake): for bug-proof coders only.
+- [Integrations](./INTEGRATIONS.md): check this if you want to try out the unit-testing or the benchmarking modules.
+  - [Benchmark](#Benchmark): let's crunch some numbers.
+  - [Unit-test](#Unit-test): yeah, but does it really work afterall?
+- [Implementation](./IMPLEMENTATION.md): check this if you want know a little more about the implementation.
+  - [The concept](#The-concept): a little overview at the basic concept of the implementation.
+  - [API](#API): some informations about the API of **CirDeVec**.
+  - [Efficiency](#Efficiency): some informations about the efficiency of **CirDeVec**.
+  - [Cache friendliness](#Cache-friendliness): the internal representation aims to be cache friendly.
+
 
 
 ## Repository folders structure
@@ -26,6 +44,8 @@ Give a look at the [kriasoft's Folder Structure Conventions](https://github.com/
     ├── Doxyfile                    # Doxygen configuration file
     ├── LICENSE.md                  # License markdown file 
     └── README.md                   # Readme markdown file (YOU ARE HERE)
+
+
 
 ## Download CirDeVec
 
@@ -45,17 +65,6 @@ $ cd CirDeVec
 # Update the repository
 $ git pull origin master
 ```
-
-## Dependencies
-
-* [Google Benchmark library](https://github.com/google/benchmark): if you wish to benchmark the **CirDeVec** performance against other data structures, you need to download this.
-
-  ```bash
-  # If you aren't already inside the CirDeVec repository folder
-  $ cd CirDeVec
-  # Download the dependencies
-  $ git submodule update --init
-  ```
 
 
 
@@ -79,3 +88,20 @@ Here is a list of extra-tools needed for certain purposes; a list of commands to
   ```bash
   sudo apt-get install doxygen
   ```
+
+
+
+## Dependencies
+
+* [Google Benchmark library](https://github.com/google/benchmark): if you wish to [benchmark](./docs/INTEGRATIONS.md) the **CirDeVec** performance against other data structures, you need to download this.
+
+  ```bash
+  # If you aren't already inside the CirDeVec repository folder
+  $ cd CirDeVec
+  # Download the dependencies
+  $ git submodule update --init
+  ```
+
+
+
+## It's not over yet: check the INCLUSION, INTEGRATIONS and IMPLEMENTATIONS sections in the [Table of contents](#Table-of-contents-(with-hyperlinks)).
