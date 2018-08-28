@@ -1,18 +1,22 @@
 #include <benchmark/benchmark.h>
 
-static void BM_StringCreation(benchmark::State& state) {
+#include <CirDeVec/CirDeVec.hpp>
+#include <vector>
+
+static void CIRDEVEC_ctor (benchmark::State& state) 
+{
   for (auto _ : state)
-    std::string empty_string;
+    cirdevec <int> cdv;
 }
 // Register the function as a benchmark
-BENCHMARK(BM_StringCreation);
+BENCHMARK (CIRDEVEC_ctor);
 
-// Define another benchmark
-static void BM_StringCopy(benchmark::State& state) {
-  std::string x = "hello";
+static void VECTOR_ctor (benchmark::State& state)
+{
   for (auto _ : state)
-    std::string copy(x);
+    std::vector <int> vec;
 }
-BENCHMARK(BM_StringCopy);
+// Register the function as a benchmark
+BENCHMARK (VECTOR_ctor);
 
 BENCHMARK_MAIN();
