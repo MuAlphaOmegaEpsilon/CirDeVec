@@ -2,12 +2,20 @@
 
 > ### ***CirDeVec***, a **Cir**cular **D**ouble-**e**nded **Vec**tor data-structure.
 
+
+
+You are definitely curious, aren't you?
+
+
+
 ## Table of contents
 
 - [The concept](#The-concept): a little overview at the basic concept of the implementation.
 - [API](#API): some informations about the API of **CirDeVec**.
 - [Efficiency](#Efficiency): some informations about the efficiency of **CirDeVec**.
 - [Cache friendliness](#Cache-friendliness): the internal representation aims to be cache friendly.
+
+
 
 ## The concept
 
