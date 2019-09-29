@@ -9,7 +9,7 @@ CirDeVec is a hybrid data-structure that is heavily inspired by the behaviour of
 
 
 
-## Table of contents (with hyperlinks)
+## Table of contents
 
 - [Repository folders structure](#Repository-folders-structure): a look at how the files are distributed in directories.
 - [Download repository](#Download-Cirdevec): details on how to download this repository.
