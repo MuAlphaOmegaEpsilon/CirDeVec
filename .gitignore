@@ -1,7 +1,7 @@
 # Ignore both root files and root directories...
 /*
 
-# ...except these folders (and eventually their content) down here...
+# ...except these folders down here...
 !/build
 !/cmake
 !/deps
@@ -10,7 +10,7 @@
 !/include
 !/tests
 
-# ...and except these files down here...
+# ...and these files down here...
 !/CMakeLists.txt
 !/Doxyfile
 !/.gitignore
