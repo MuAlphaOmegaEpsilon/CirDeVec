@@ -21,6 +21,7 @@ PROJECT (CirDeVec VERSION 1.0.0 LANGUAGES CXX
 ###############################################################################
 OPTION (TEST "Is library testing enabled?" OFF)									# Default is OFF
 OPTION (BENCH "Is library benchmarking enabled?" OFF)							# Default is OFF
+OPTION (EXAMPLE "Is library example building enabled?" OFF)						# Default is OFF
 
 
 
@@ -62,9 +63,20 @@ ENDIF ()
 
 
 ###############################################################################
+#                                   BENCHMARK                                 #
+###############################################################################
+IF (EXAMPLE)
+	INCLUDE (cmake/buildExample.cmake)
+ENDIF ()
+
+
+
+
+###############################################################################
 #                                OPTIONS LISTING                              #
 ###############################################################################
 MESSAGE (STATUS "Down here there is a list of useful options flags:")			# Listing the options flags
 MESSAGE (STATUS "  [${TEST}] -DTEST=ON/OFF to enable/disable library functionality testing")
 MESSAGE (STATUS "  [${BENCH}] -DBENCH=ON/OFF to enable/disable library benchmarking against vector")
+MESSAGE (STATUS "  [${EXAMPLE}] -DEXAMPLE=ON/OFF to enable/disable library example building")
 MESSAGE (STATUS "")	
